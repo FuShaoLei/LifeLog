@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="content-main">
+    {{ .Content }}
+</div>
+
+
+
+<div class="footer-container">
+    {{ if .Params.date }}
+    {{ if .Date }}
+    <div class="footer-item footer-date">写于：{{ .Date.Format "2006/01/02" }}</div>
+    {{ end }}
+    {{ end }}
+</div>
+
+
+{{end}}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ with .Title }}{{ . }} &ndash; {{end}}{{ .Site.Title }}</title>
+{{ with .Site.Params.description }}
+<meta name="description" content="{{ . }}">{{ end }}
+{{ with .Site.Params.author }}
+<meta name="author" content="{{ . }}">{{ end }}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
+
+<body>
+    <div class="container">
+        <div class="header-conotainer">
+            <div class="header-title">
+                {{if .IsHome }}
+                    {{ .Site.Title }}
+                {{ else }}
+                    {{ .Title | markdownify }}
+                {{ end }}
+            </div>
+            <div class="header-menu-container">
+
+                
+                    {{ with .Site.Menus.main }}
+                        {{ range . }}
+                        <div class="header-menu-item"><a href="{{ .URL | relURL }}">{{ .Name }}</a></div>
+                        {{ end }}
+                    {{ end }}
+            
+
+
+            </div>
+
+        </div>
+        <div class="content-container">
+            {{- block "main" . }}{{- end }}
+        </div>
+        {{- partial "footer.html" . -}}
+    </div>
+
+</body>
+
+</html>
