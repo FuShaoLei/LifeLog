@@ -1,9 +1,10 @@
 {{ define "main" }}
+<h1 class="content-title">
+    {{ .Title }}
+</h1>
 <div class="content-main">
     {{ .Content }}
 </div>
-
-
 
 <div class="footer-container">
     {{ if .Params.date }}
