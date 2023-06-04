@@ -27,17 +27,32 @@ html {
 body {
     margin: 0;
     padding: 0;
-    display: flex;
     color: var(--light-color);
-    /* font-family: "LXGW WenKai Lite", sans-serif; */
-    justify-content: center;
     background-color: var(--dark-color);
 }
 
 /* 全局容器 */
 .container {
-    width: 800px;
+    display: flex;
+    height: 100vh;
 }
+.left-container{
+    flex-basis: 400px;
+    background-color: antiquewhite;
+}
+.title-container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right: 1px;
+}
+.title-wapper {
+    padding: 2px 11px;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Noto Serif SC', serif;
+}
+
 
 .container a {
     /* color: var(--accent-color); */

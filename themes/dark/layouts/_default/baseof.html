@@ -20,32 +20,31 @@
 
 <body>
     <div class="container">
-        <div class="header-conotainer">
-            <div class="header-title">
-                {{if .IsHome }}
-                    {{ .Site.Title }}
-                {{ else }}
-                    {{ .Title | markdownify }}
-                {{ end }}
-            </div>
-            <div class="header-menu-container">
-
-                
-                    {{ with .Site.Menus.main }}
-                        {{ range . }}
-                        <div class="header-menu-item"><a href="{{ .URL | relURL }}">{{ .Name }}</a></div>
+        <div class="left-container">
+            <div class="title-container">
+                    <div>
+                        {{ .Site.Title }}
+                    </div>
+                    <div class="header-menu-container">
+                        {{ with .Site.Menus.main }}
+                            {{ range . }}
+                            <div class="header-menu-item"><a href="{{ .URL | relURL }}">{{ .Name }}</a></div>
+                            {{ end }}
                         {{ end }}
-                    {{ end }}
-            
-
-
+                    </div>
+                
             </div>
-
+            <div class="list-content">
+                
+            </div>
         </div>
-        <div class="content-container">
-            {{- block "main" . }}{{- end }}
+        <div class="right-container">
+            <div class="content-container">
+                {{- block "main" . }}{{- end }}
+            </div>
+            {{- partial "footer.html" . -}}
         </div>
-        {{- partial "footer.html" . -}}
+        
     </div>
 
 </body>
